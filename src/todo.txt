@@ -1,0 +1,5 @@
+reformate entriy line for the output.
+    formate date/time
+get value for corresponding wmo code(check github example)
+    add example in help.
+
