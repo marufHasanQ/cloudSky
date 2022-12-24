@@ -2,7 +2,6 @@
 
 
 
-import {optionsArray} from '../options.mjs'
 export function checkArgumentValidity(optionsArray) {
     return inputArray => {
 

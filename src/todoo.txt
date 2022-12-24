@@ -1,5 +1,10 @@
 reformate entriy line for the output.
+done
     formate date/time
+done
 get value for corresponding wmo code(check github example)
+done
     add example in help.
+done
+Handle error that are thrown when retriving location was not possible.
 

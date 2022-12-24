@@ -11,12 +11,15 @@
 
 
 
-import{black,yellow,blue,white,light,blueB,green,dark,skyB} from './designTemplate.mjs';  
+import{black,yellow,blue,white,sky,light,blueB,green,dark,skyB} from './designTemplate.mjs';  
 import{codeTranslation} from './wmoCodeTranslation.mjs';  
 
 
-const headLineDesign = data =>blueB(yellow(data));
-const secondHeadLineDesign = data => blueB(data);
+//const headLineDesign = data =>blueB(yellow(data));
+const headLineDesign = data =>skyB((data));
+//const secondHeadLineDesign = data => blueB(data);
+
+const secondHeadLineDesign = data => skyB(data);
 const grey = data => light(black(data));
 const lightBlue = data => light(blue(data));
 
@@ -24,14 +27,16 @@ export function showResult(inputArray) {
     return data => {
 
         // console.log(headLineDesign(' Current Weather '));
-        horizontalPlacement([headLineDesign(' Current Weather '),codeTranslation(Number(data.current_weather.weathercode))]) ('  ')
-        //.repeat( 15 - 'Current Weather'.split('').length)) ;
-        showCurrentWeather(data.current_weather,data.daily_units);
-        console.log();
-        console.log(`Forcast for next seven days...`);
-        console.log();
-        showDailyWeather(inputArray,data.daily,data.daily_units);
-    }
+        horizontalPlacement([headLineDesign(' Current Weather '),black(codeTranslation(Number(data.current_weather.weathercode)))]) ('  ')
+            //.repeat( 15 - 'Current Weather'.split('').length)) ;
+            showCurrentWeather(data.current_weather,data.daily_units);
+            console.log();
+            console.log();
+            console.log(sky(`Forcast for next seven days...`));
+            console.log();
+            showDailyWeather(inputArray,data.daily,data.daily_units);
+
+        }
 
 }
 
@@ -49,10 +54,9 @@ function showCurrentWeather(currentWeather,units) {
 function showDailyWeather(inputArray,dailyWeather,units) {
 
     dailyWeather.time.forEach((v,i) => {
-        console.log()
 
         // horizontalPlacement([secondHeadLineDesign(` Day ${i+1} `), codeTranslation(Number(dailyWeather.weathercode[i]))])(' '.repeat( 5 - 'Day 5'.split('').length));
-        horizontalPlacement([secondHeadLineDesign(` Day ${i+1} `), codeTranslation(Number(dailyWeather.weathercode[i]))])('  ');
+        horizontalPlacement([secondHeadLineDesign(` Day ${i+1} `), black(codeTranslation(Number(dailyWeather.weathercode[i])))])('  ');
         console.log();
         printEntries('Maximum Temparature',dailyWeather.temperature_2m_max[i],units.temperature_2m_max);
         printEntries('Minimum Temparature',dailyWeather.temperature_2m_min[i],units.temperature_2m_min);
@@ -74,6 +78,7 @@ function showDailyWeather(inputArray,dailyWeather,units) {
             //        console.log(`${grey(key)}: ${lightBlue(dailyWeather[key][i])}`);
             printEntries(key,dailyWeather[key][i],units[key]); 
         }
+        console.log();
     })
 
 }

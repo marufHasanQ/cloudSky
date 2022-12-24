@@ -1,11 +1,10 @@
-import  {background,blueB,redB,whiteB,grey, greenB,yellowB,blackB,light,blinkSlow,dark} from './designTemplate.mjs'
-const b = background;
+import  {background,blueB,redB,whiteB,greyB, grey, greenB,yellowB,blackB,light,blinkSlow,dark,skyB} from './designTemplate.mjs'
 
-const greyB=  data => `\x1b[48;05;8m`+ data + '\x1b[0m';
-const skyB=  data => `\x1b[48;2;25;189;255m`+ data + '\x1b[0m';
+//const greyB=  data => `\x1b[48;05;8m`+ data + '\x1b[0m';
+//const skyB=  data => `\x1b[48;2;25;189;255m`+ data + '\x1b[0m';
 const wmoCode = [
     [[0 ],[skyB(' Clear Sky ')]],
-    [[1, 2, 3 ],[(skyB( ' Clear ')), greyB( ' Overcast '),greyB( ' cloudy ')]],
+    [[1, 2, 3 ],[(skyB( ' Clear ')), greyB( ' Overcast '),greyB(' cloudy ')]],
     [[45, 48 ],[ greyB( ' Fog '), greyB( ' Fog ')]],
     [[51, 53, 55 ],[ greenB(' Light Drizzle '), yellowB(' Moderate Drizzle '), redB(' Dense Drizzle ')]],
     [[56, 57 ],[ yellowB(' Moderate Freezing Drizzle '), redB(' Dense Freezing Drizzle ')]],
@@ -19,23 +18,20 @@ const wmoCode = [
     [[96, 99  ],[ redB('  Thunderstorm ') ,redB('  Thunderstorm ')]]
 ];
 //console.log(wmoCode[2][1][0]);
-console.log('code',codeTranslation(Number(process.argv[2])));
-function codeTranslation(code) {
-    return  wmoCode.reduce((acc,value) => {
-        return acc !==''? acc : value[0].reduce((acc,v,i) => {
-            if(v === code)
-                return value[1][i];
+//console.log('code',codeTranslation(Number(process.argv[2])));
 
-            return acc;
+function codeTranslationFunction(wmoCode) {
+    return code => {
+        return  wmoCode.reduce((acc,value) => {
+            return acc !==''? acc : value[0].reduce((acc,v,i) => {
+                if(v === code)
+                    return value[1][i];
+
+                return acc;
+            },'');
         },'');
-    },'');
 
+    }
 }
+const codeTranslation = codeTranslationFunction(wmoCode);
 export {codeTranslation};
-/*
-function codeTranslation(code) {
-    return    wmoCode.find(value =>{
-        return v[0].find(v => v ===code);
-    })
-}
-*/

@@ -11,7 +11,13 @@ export const getJson= (protocol,url) => {
 
     return new Promise((resolve, reject) => { 
         const req = protocol.get(url);
-        req.end();
+        req.on('error', function (e) {
+
+            req.end();
+            console.log(`Error couldn't get the location data` );
+            console.log(e.message);
+            reject(e);
+        });
         req.once('response', (res) => {
             let rawJson= '';
             res.on('data',(chunk) => rawJson += chunk );

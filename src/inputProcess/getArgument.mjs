@@ -23,9 +23,14 @@
 //const preferance = createUserPreferenceFromArguments(argumentArray);
 //console.log(argumentArray);
 
+//from arguments it returns a formated 2d array
+//formate [[option,[val1,val2],[option2,[value1,value2]]
 export function createArgument2DArray(argvArray) {
+
     return Array.from(
         argvArray.join(' ')
+        // matches the string '--option [value,vaue2 ..]'
+        
         .matchAll(/-(\w+)( [^-]+)*/g)
     )
         .map(v => [v[1],v[2]])
@@ -33,7 +38,7 @@ export function createArgument2DArray(argvArray) {
 
     function createArrayOfNonEmptyParameter(parameterString) {
 
-        //console.log('para',typeof(parameterString));
+        //if the options has no value, for example --options1 v1 v2 --noValueObtion
         if(!parameterString)
             return ''
         return deleteDubpicateElements(

@@ -22,8 +22,9 @@ export const getLocationObject = locationUrl => {
     return new Promise((resolve,reject) => {
 
         getJson(http,locationUrl)
-            .then((data) => resolve ({lat: data.lat, lon: data.lon, timezone: data.timezone}))
-            .catch(console.log)
+        //.then((data) => resolve ({lat: data.lat, lon: data.lon, timezone: data.timezone}))
+            .then((data) => resolve (data))
+            .catch( e => reject(e));
     })
 
 };
