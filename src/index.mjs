@@ -9,7 +9,6 @@ import {showResult} from './outputProcess/show.mjs'
 import {greenB,yellowB,black} from './outputProcess/designTemplate.mjs'
 import {showHelpDialog} from './outputProcess/showHelpDialog.mjs'
 
-
 const locationUrl = `http://ip-api.com/json/?fields=status,message,regionName,city,lat,lon,timezone`;
 
 weatherApp();
@@ -60,3 +59,4 @@ function weatherApp() {
 }
 
 const l = 5;
+
