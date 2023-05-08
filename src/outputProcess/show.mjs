@@ -1,16 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 import{black,yellow,blue,white,sky,light,blueB,green,dark,skyB} from './designTemplate.mjs';  
 import{codeTranslation} from './wmoCodeTranslation.mjs';  
 
@@ -32,7 +19,7 @@ export function showResult(inputArray) {
             showCurrentWeather(data.current_weather,data.daily_units);
             console.log();
             console.log();
-            console.log(sky(`Forcast for next seven days...`));
+            console.log(sky(`Forcast data...`));
             console.log();
             showDailyWeather(inputArray,data.daily,data.daily_units);
 
@@ -56,7 +43,7 @@ function showDailyWeather(inputArray,dailyWeather,units) {
     dailyWeather.time.forEach((v,i) => {
 
         // horizontalPlacement([secondHeadLineDesign(` Day ${i+1} `), codeTranslation(Number(dailyWeather.weathercode[i]))])(' '.repeat( 5 - 'Day 5'.split('').length));
-        horizontalPlacement([secondHeadLineDesign(` Day ${i+1} `), black(codeTranslation(Number(dailyWeather.weathercode[i])))])('  ');
+        horizontalPlacement([secondHeadLineDesign(` Day ${i+1} `), black(codeTranslation(Number(dailyWeather.weathercode[i])))])(`  [${v}]  `);
         console.log();
         printEntries('Maximum Temparature',dailyWeather.temperature_2m_max[i],units.temperature_2m_max);
         printEntries('Minimum Temparature',dailyWeather.temperature_2m_min[i],units.temperature_2m_min);

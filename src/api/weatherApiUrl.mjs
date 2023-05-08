@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 import {optionsArray} from '../options.mjs';
 
 export function getWeatherUrlString(inputArray) {
@@ -22,11 +14,11 @@ export function getWeatherUrlString(inputArray) {
 
             //temperature_unit
             if(optionsArray[0].get('option').includes(value[0])) 
-                // temperature_unit = temperature_unit+'&temperature_unit='+ value[1].join(',');
-                settings = settings +'&temperature_unit='+ value[1].join(',');
+                fields = fields +','+ value[1].join(',');
 
             if(optionsArray[1].get('option').includes(value[0])) 
-                fields = fields +','+ value[1].join(',');
+                // temperature_unit = temperature_unit+'&temperature_unit='+ value[1].join(',');
+                settings = settings +'&temperature_unit='+ value[1].join(',');
 
             if(optionsArray[2].get('option').includes(value[0])) 
                 //past_days = past_days +'&past_days='+ value[1].join(',');

@@ -1,12 +1,3 @@
-
-
-
-
-
-
-
-
-
 export const getJson= (protocol,url) => {
 
     return new Promise((resolve, reject) => { 
@@ -14,7 +5,7 @@ export const getJson= (protocol,url) => {
         req.on('error', function (e) {
 
             req.end();
-            console.log(`Error couldn't get the location data` );
+            console.log(`Error couldn't get the data` );
             console.log(e.message);
             reject(e);
         });
@@ -22,18 +13,18 @@ export const getJson= (protocol,url) => {
             let rawJson= '';
             res.on('data',(chunk) => rawJson += chunk );
             res.on('end',function(){
-
-                if (res.statusCode === 200) {
+               let data; 
+                //console.log(rawJson);
                     try {
-                        const data = JSON.parse(rawJson);
-                        //console.log('inside getJson', res.statusCode, data);
-
-                        resolve(data);
-
+                        data = JSON.parse(rawJson);
                     } catch (e) {
                         console.log('Error parsing JSON!');
                         reject('Error parsing JSON!');
+                        return;
                     }
+
+                if (res.statusCode === 200) {
+                        resolve(data);
                 } 
                 else if(res.statusCode === 429){
                     reject('Request limit exceded');
@@ -41,7 +32,16 @@ export const getJson= (protocol,url) => {
 
                 }
                 else {
-                    reject('Status:'+ res.statusCode);
+                       // console.log('inside getJson', res.statusCode,rawJson );
+                    //throw ('Status:'+ res.statusCode);
+                    //
+                    let errorString = 'Status:'+ res.statusCode; 
+                        //console.log(data);
+                    if(data.error)
+                        errorString = errorString + ` reason: ${data.reason}`;
+
+                    reject(errorString);
+                    //reject('Status:'+ 'cant get data');
                 }
 
             });

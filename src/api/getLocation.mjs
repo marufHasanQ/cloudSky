@@ -1,20 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import * as http from 'http';
 import {getJson} from './requestJson.mjs'
 export const getLocationObject = locationUrl => {
@@ -24,7 +7,7 @@ export const getLocationObject = locationUrl => {
         getJson(http,locationUrl)
         //.then((data) => resolve ({lat: data.lat, lon: data.lon, timezone: data.timezone}))
             .then((data) => resolve (data))
-            .catch( e => reject(e));
+            .catch( e => reject('Error while fetching Location Data\n' + e ));
     })
 
 };
