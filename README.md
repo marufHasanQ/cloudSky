@@ -19,7 +19,7 @@ cd cloudSky
 then globaly install project with npm
 
 ```bash
-npm install cloudSky --global
+npm install --global
 
 ```
 
