@@ -33,7 +33,7 @@ weather
 ```
 ![prediction](./screenshots/PredictionOutput.gif)
 
-####to get available options
+#### To get available options
 
 ```bash
 weather --help
