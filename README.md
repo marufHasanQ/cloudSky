@@ -101,6 +101,9 @@ available values for the options
 |   kn     | Sets the windspeed unit to kn |
 
 ....and more.
-## License
+## Acknowledgements
+ - [ip-api](https://ip-api.com/)
+ - [Open-Meteo](https://open-meteo.com/)
 
+## License
 [MIT](https://choosealicense.com/licenses/mit/)
