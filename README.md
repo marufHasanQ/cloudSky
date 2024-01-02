@@ -12,8 +12,8 @@ A command Line weather forcast app, created in Node.js. Developed from the scrat
 ## Installation
 First clone the repo
 ```bash
-git clone https://github.com/marufHasanQ/cloudSky.git
-cd cloudSky
+git clone https://github.com/marufHasanQ/cloudsky.git
+cd cloudsky
 
 ```
 then globaly install project with npm

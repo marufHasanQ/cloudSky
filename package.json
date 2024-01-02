@@ -1,5 +1,5 @@
 {
-    "name": "cloudSky",
+    "name": "cloudsky",
     "version": "1.0.0",
     "description": "A command line weather utility",
     "main": "./src/index.mjs",
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/marufHasanQ/cloudSky.git"
+        "url": "git+https://github.com/marufHasanQ/cloudsky.git"
     },
     "bin": {
         "weather": "./src/index.mjs"
@@ -23,7 +23,7 @@
     "author": "Maruf Hasan",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/marufHasanQ/cloudSky/issues"
+        "url": "https://github.com/marufHasanQ/cloudsky/issues"
     },
-    "homepage": "https://github.com/marufHasanQ/cloudSky#readme"
+    "homepage": "https://github.com/marufHasanQ/cloudsky#readme"
 }
