@@ -1,6 +1,6 @@
 {
     "name": "cloudsky",
-    "version": "1.0.0",
+    "version": "1.0.1-0",
     "description": "A command line weather utility",
     "main": "./src/index.mjs",
     "scripts": {
