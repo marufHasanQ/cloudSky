@@ -1,22 +1,27 @@
 # Weather CLI
-A command Line weather forcast app, created in Node.js. Developed from the scratch (no external library is used).
+A command Line weather forecast app, created in Node.js. Developed from the scratch (no external library is used).
 
 
 ## Features
 
 - Plug and Play (No initial co-ordinate or api-key is needed).
 - Provide current weather( within an hour), alongside up to seven days of prediction.
-- Lightweight and economical in size due to not useing any external library.
-- Begainer friendly help page.
+- Lightweight and economical in size due to not using any external library.
+- Beginner friendly help page.
 
 ## Installation
+To install from default npm registry
+```bash
+npm install --global cloudsky
+```
+### To install from source code
 First clone the repo
 ```bash
 git clone https://github.com/marufHasanQ/cloudsky.git
 cd cloudsky
 
 ```
-then globaly install project with npm
+then globally install project with npm
 
 ```bash
 npm install --global
@@ -26,7 +31,7 @@ npm install --global
 
 
 ## Usage
-To get current weather and forcast of next seven days
+To get current weather and forecast of next seven days
 
 ```bash
 weather
@@ -60,7 +65,7 @@ available values for the options
 ....and more.
 
 ### --past_days,  -pd
-####   Sets the starting day for the prediction. 
+####   Sets the starting day for the prediction.
 Example:
 ```bash
 weather -pd 1
@@ -95,7 +100,7 @@ weather -wu kmh
 available values for the options
 | Parameter  | Description                |
 | :--------  | :------------------------- |
-|   kmh    |   Sets the windspeed unit to kmh, this is difault  |
+|   kmh    |   Sets the windspeed unit to kmh, this is default  |
 |   mph    | Sets the windspeed unit to mph  |
 |   ms     |   Sets the windspeed unit to ms  |
 |   kn     | Sets the windspeed unit to kn |
