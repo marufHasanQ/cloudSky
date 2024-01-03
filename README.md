@@ -1,4 +1,4 @@
-# Weather CLI
+# cloudsky
 A command Line weather forecast app, created in Node.js. Developed from the scratch (no external library is used).
 
 
